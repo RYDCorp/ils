@@ -1,12 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Gilang
- * Date: 5/8/13
- * Time: 9:16 AM
- * To change this template use File | Settings | File Templates.
- */
-
 class Model_app extends CI_Model{
     function __construct(){
         parent::__construct();
