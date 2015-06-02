@@ -53,7 +53,7 @@ class Model_app extends CI_Model{
         }else{
             $kd = "001";
         }
-        return "P-".$kd;
+        return "C-".$kd;
     }
 
     //    KODE PEGAWAI

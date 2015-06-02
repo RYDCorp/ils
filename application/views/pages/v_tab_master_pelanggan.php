@@ -8,7 +8,7 @@
         <th>Email</th>
         <th class="span2">
             <a href="#modalAddPelanggan" class="btn btn-mini btn-block btn-inverse" data-toggle="modal">
-                <i class="icon-plus-sign icon-white"></i> Tambah Data
+                <i class="icon-plus-sign icon-white"></i> Tambah Client
             </a>
         </th>
     </tr>
@@ -43,21 +43,21 @@
 <div id="modalAddPelanggan" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Tambah Data Pelanggan</h3>
+        <h3 id="myModalLabel">Tambah Client</h3>
     </div>
     <form class="form-horizontal" method="post" action="<?php echo site_url('master/tambah_pelanggan')?>">
         <div class="modal-body">
             <div class="control-group">
-                <label class="control-label">Kode Pelanggan</label>
+                <label class="control-label">Kode Client</label>
                 <div class="controls">
                     <input name="kd_pelanggan" type="text" value="<?php echo $kd_pelanggan; ?>" readonly>
                 </div>
             </div>
 
             <div class="control-group">
-                <label class="control-label" >Nama Pelanggan</label>
+                <label class="control-label" >Nama Client</label>
                 <div class="controls">
-                    <input name="nm_pelanggan" type="text" placeholder="Input Nama Pelanggan...">
+                    <input name="nm_pelanggan" type="text" placeholder="Input Nama Client">
                 </div>
             </div>
 

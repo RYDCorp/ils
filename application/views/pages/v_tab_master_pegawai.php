@@ -8,7 +8,7 @@
         <th>Level</th>
         <th class="span2">
             <a href="#modalAddPegawai" class="btn btn-mini btn-block btn-inverse" data-toggle="modal">
-                <i class="icon-plus-sign icon-white"></i> Tambah Data
+                <i class="icon-plus-sign icon-white"></i> Tambah Pegawai
             </a>
 
 <!--            <a href="#" class="btn btn-mini btn-block btn-inverse disabled" data-toggle="modal">-->
@@ -53,7 +53,7 @@
 <div id="modalAddPegawai" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Tambah Data Pegawai</h3>
+        <h3 id="myModalLabel">Tambah Pegawai</h3>
     </div>
     <form class="form-horizontal" method="post" action="<?php echo site_url('master/tambah_pegawai')?>">
         <div class="modal-body">
