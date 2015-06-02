@@ -29,7 +29,7 @@
  <div class="login">
         <div class="login-screen">
           <div class="login-icon">
-            <img src="img/login/icon.png" alt="Selamat Datang di SIL" />
+       
             <h4>Welcome to <small>Sistem Informasi Logistik</small></h4>
           </div>
 

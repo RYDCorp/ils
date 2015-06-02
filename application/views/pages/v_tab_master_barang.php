@@ -8,7 +8,7 @@
         <th>Harga</th>
         <th class="span2">
             <a href="#modalAddBarang" class="btn btn-mini btn-block btn-inverse" data-toggle="modal">
-                <i class="icon-plus-sign icon-white"></i> Tambah Data
+                <i class="icon-plus-sign icon-white"></i> Tambah Barang
             </a>
         </th>
     </tr>
