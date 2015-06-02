@@ -3,64 +3,21 @@
     <meta charset="utf-8">
     <title><?php echo $title?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aplikasi inventori sederhana dengan CI & Bootstrap">
-    <meta name="author" content="Gilang Sonar - gilangsonar.com">
+    <meta name="description" content="SistemInformasi Logistik PT. BONET">
+    <meta name="author" content="RYD Corp - Randy Mandala - Yodi Yanwar - Dasep Purnama">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="<?php echo base_url('asset/css/bootstrap.css')?>"/>
+    <link rel="stylesheet" href="<?php echo base_url('dist/css/vendor/bootstrap.min.css')?>"/>
     <link rel="stylesheet" href="<?php echo base_url('asset/css/bootstrap-responsive.css')?>"/>
-    <link rel="stylesheet" href="<?php echo base_url('asset/css/style.css')?>"/>
-    <style>
-        .chzn-container-single .chzn-search input{
-            width: 100%;
-        }
-        body {
-            padding-top: 70px;
-            background-color: #3d579d;
-            color: #fff;
-        }
-        a{
-            color: #002166;
-        }
-        a:hover{
-            text-decoration: none;
-            color: #fff;
-        }
-        .form-signin {
-            max-width: 300px;
-            padding: 19px 29px 29px;
-            margin: 0 auto 20px;
-            background-color: #3d579d;
-            border: 2px solid rgba(255,255,255,0.3);
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-            -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-            box-shadow: 0 1px 2px rgba(0,0,0,.05);
-            color: #ffffff;
-        }
-        .form-signin:hover{
-            border: 2px solid #fff;
-        }
-        .form-signin .form-signin-heading,
-        .form-signin {
-            margin-bottom: 10px;
-        }
-        .form-signin input[type="text"],
-        .form-signin input[type="password"] {
-            font-size: 16px;
-            height: auto;
-            margin-bottom: 15px;
-            padding: 7px 9px;
-        }
-        .text-center{
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="<?php echo base_url('flat/dist/css/flat-ui.css')?>"/>
+     <!-- Loading Flat UI -->
+    <link rel="stylesheet" href="<?php echo base_url('dist/css/flat-ui.css')?>"/>
+    <link rel="stylesheet" href="<?php echo base_url('docs/assets/css/demo.css')?>"/>
+
+
 
     <!-- Fav icon -->
-    <link rel="shortcut icon" href="<?php echo base_url('asset/img/favicon.ico')?>">
+    <link rel="shortcut icon" href="<?php echo base_url('img/favicon.ico')?>">
 
     <!-- JS -->
     <script type="text/javascript" src="<?php echo base_url('asset/js/jquery.js')?>"></script>
@@ -69,6 +26,12 @@
 
 <body>
 <div class="container">
+ <div class="login">
+        <div class="login-screen">
+          <div class="login-icon">
+            <img src="img/login/icon.png" alt="Selamat Datang di SIL" />
+            <h4>Welcome to <small>Sistem Informasi Logistik</small></h4>
+          </div>
 
     <div class="loading navbar-fixed-top" style="display: none">
         <div class="progress progress-primary progress-striped active">
@@ -76,25 +39,25 @@
         </div>
     </div>
     <br>
-    <form class="form-signin" action="<?= site_url('login/cek_login')?>" method="post">
-        <hr>
-        <h4 class="form-signin-heading text-center">Sistem Informasi Logistik</h4>
+          
+    <form class="login-form" action="<?= site_url('login/cek_login')?>" method="post">
+        
+        <div class="form-group">
+        <input type="text" class="form-control login-field" placeholder="Masukan Username Anda" name="username" required="">
+        <label class="login-field-icon fui-user" for="login-name"></label>
+        </div>
+        <div class="form-group">
+        <input type="password" class="form-control login-field" placeholder="Password" name="password" required="">
+          <label class="login-field-icon fui-lock" for="login-pass"></label>
+          </div>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Masuk</button>
+    </div>
 
-            <!-- NOTIF -->
-            <?php
-            $message = $this->session->flashdata('notif');
-            if($message){
-                echo '<p class="alert alert-danger text-center">'.$message .'</p>';
-            }?>
-
-        <hr>
-        <input type="text" class="input-block-level" placeholder="Username" name="username" required="">
-        <input type="password" class="input-block-level" placeholder="Password" name="password" required="">
-        <button class="btn btn-large" type="submit">Sign in</button>
     </form>
-    <hr>
+      <div class="container">
     <div class="footer">
-        <p>&copy; 2015: <a href="http://bogor.net.id" target="_blank"><strong>PT. Bonet Utama</strong></a></p>
+        <p>&copy; 2015: <a href="http://bogor.net.id" target="_blank"><strong>PT. Bonet Utama - Dev by RYD Corp</strong></a></p>
+    </div>
     </div>
 </div>
 </body>

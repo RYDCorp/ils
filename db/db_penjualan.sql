@@ -98,7 +98,7 @@ INSERT INTO `tbl_pelanggan` (`kd_pelanggan`, `nm_pelanggan`, `alamat`, `email`) 
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_penjualan_detail` (
-  `kd_penjualan` varchar(5) NOT NULL,
+  `kd_barang_keluar` varchar(5) NOT NULL,
   `kd_barang` varchar(10) NOT NULL,
   `qty` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `tbl_penjualan_detail` (
 -- Dumping data untuk tabel `tbl_penjualan_detail`
 --
 
-INSERT INTO `tbl_penjualan_detail` (`kd_penjualan`, `kd_barang`, `qty`) VALUES
+INSERT INTO `tbl_penjualan_detail` (`kd_barang_keluar`, `kd_barang`, `qty`) VALUES
 ('O-001', 'B-001', 2),
 ('O-001', 'B-002', 3);
 
@@ -118,17 +118,17 @@ INSERT INTO `tbl_penjualan_detail` (`kd_penjualan`, `kd_barang`, `qty`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tbl_penjualan_header` (
-  `kd_penjualan` varchar(5) NOT NULL,
+  `kd_barang_keluar` varchar(5) NOT NULL,
   `kd_pelanggan` varchar(10) NOT NULL,
   `total_harga` int(20) NOT NULL,
   `tanggal_penjualan` date NOT NULL,
   `kd_pegawai` varchar(5) DEFAULT NULL,
-  PRIMARY KEY (`kd_penjualan`)
+  PRIMARY KEY (`kd_barang_keluar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `tbl_penjualan_header`
 --
 
-INSERT INTO `tbl_penjualan_header` (`kd_penjualan`, `kd_pelanggan`, `total_harga`, `tanggal_penjualan`, `kd_pegawai`) VALUES
+INSERT INTO `tbl_penjualan_header` (`kd_barang_keluar`, `kd_pelanggan`, `total_harga`, `tanggal_penjualan`, `kd_pegawai`) VALUES
 ('O-001', 'P-002', 9800000, '2014-06-20', 'K-001');

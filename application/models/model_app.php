@@ -1,12 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Gilang
- * Date: 5/8/13
- * Time: 9:16 AM
- * To change this template use File | Settings | File Templates.
- */
-
 class Model_app extends CI_Model{
     function __construct(){
         parent::__construct();
@@ -17,7 +9,7 @@ class Model_app extends CI_Model{
     //    KODE PENJUALAN
     public function getKodePenjualan()
     {
-        $q = $this->db->query("select MAX(RIGHT(kd_penjualan,3)) as kd_max from tbl_penjualan_header");
+        $q = $this->db->query("select MAX(RIGHT(kd_barang_keluar,3)) as kd_max from tbl_penjualan_header");
         $kd = "";
         if($q->num_rows()>0)
         {
@@ -141,12 +133,12 @@ class Model_app extends CI_Model{
 
     function getAllDataPenjualan(){
         return $this->db->query("SELECT
-                a.kd_penjualan,
+                a.kd_barang_keluar,
                 a.tanggal_penjualan,
                 a.total_harga,
-			    (select count(kd_penjualan) as jum from tbl_penjualan_detail where kd_penjualan=a.kd_penjualan) as jumlah
+			    (select count(kd_barang_keluar) as jum from tbl_penjualan_detail where kd_barang_keluar=a.kd_barang_keluar) as jumlah
 			    from tbl_penjualan_header a
-			    ORDER BY a.kd_penjualan DESC
+			    ORDER BY a.kd_barang_keluar DESC
 		")->result();
     }
 
@@ -154,7 +146,7 @@ class Model_app extends CI_Model{
         return $this->db->query("SELECT * from tbl_penjualan_header a
                 left join tbl_pelanggan b on a.kd_pelanggan=b.kd_pelanggan
                 left join tbl_pegawai c on a.kd_pegawai=c.kd_pegawai
-                where a.kd_penjualan = '$id'")->result();
+                where a.kd_barang_keluar = '$id'")->result();
     }
 
     function getBarangPenjualan($id){
@@ -162,7 +154,7 @@ class Model_app extends CI_Model{
                 select a.kd_barang,a.qty,b.nm_barang,b.harga
                 from tbl_penjualan_detail a
                 left join tbl_barang b on a.kd_barang=b.kd_barang
-                where a.kd_penjualan = '$id'")->result();
+                where a.kd_barang_keluar = '$id'")->result();
     }
 
     function getLapPenjualan($tgl_awal,$tgl_akhir){

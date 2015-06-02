@@ -1,8 +1,16 @@
-<!--========================= Content Wrapper ==============================-->
-<div class="tabbable tabs-left">
-    <ul class="nav nav-tabs">
+
+    <!--========================= Content Wrapper ==============================-->
+<section class="content">
+          <!-- COLOR PALETTE -->
+          <div class='box box-default color-palette-box'>
+            <div class='box-header with-border'>
+              <h3 class='box-title'><i class="fa fa-tag"></i> Master Data</h3>
+            </div>
+
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
         <li class="active"><a href="#tabBarang" data-toggle="tab"><strong>BARANG</strong></a></li>
-        <li><a href="#tabPelanggan" data-toggle="tab"><strong>PELANGGAN</strong></a></li>
+        <li><a href="#tabPelanggan" data-toggle="tab"><strong>CLIENT</strong></a></li>
         <li><a href="#tabPegawai" data-toggle="tab"><strong>PEGAWAI</strong></a></li>
         <li><a href="#tabContact" data-toggle="tab"><strong>CONTACT</strong></a></li>
     </ul>

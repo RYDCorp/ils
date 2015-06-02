@@ -7,6 +7,7 @@
     <meta name="author" content="Djava-ui">
 
     <!-- CSS -->
+
     <link rel="stylesheet" href="<?php echo base_url('asset/css/bootstrap.css')?>"/>
     <link rel="stylesheet" href="<?php echo base_url('asset/css/bootstrap-responsive.css')?>"/>
     <link rel="stylesheet" href="<?php echo base_url('asset/css/chosen.css')?>"/>
@@ -39,15 +40,16 @@
 
     <!--========================= Header + Navbar ==============================-->
     <?php if ($this->session->userdata('LEVEL') == 'admin'){ ?>
-        <div class="navbar hidden-print">
+        <div class="navbar navbar-default navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <ul class="nav">
+
+                    <ul class="nav navbar-nav">
                         <li class="<?php if(isset($active_dashboard)){echo $active_dashboard ;}?>">
                             <a href="<?php echo site_url('dashboard')?>"><i class="icon-home"></i> Dashboard</a>
                         </li>
-                        <li class="<?php if(isset($active_penjualan)){echo $active_penjualan ;}?>">
-                            <a href="<?php echo site_url('penjualan')?>"><i class="icon-barcode"></i> Penjualan</a>
+                        <li class="<?php if(isset($active_b_keluar)){echo $active_b_keluar ;}?>">
+                            <a href="<?php echo site_url('b_keluar')?>"><i class="icon-barcode"></i> Barang Keluar</a>
                         </li>
                         <li class="<?php if(isset($active_laporan)){echo $active_laporan ;}?>">
                             <a href="<?php echo site_url('laporan')?>"><i class="icon-file"></i> Laporan</a>
@@ -55,11 +57,13 @@
                         <li class="<?php if(isset($active_master)){echo $active_master ;}?>">
                             <a href="<?php echo site_url('master')?>"><i class="icon-cog"></i> Master Data</a>
                         </li>
-                        <li><a href="<?php echo site_url('login/logout')?>" style="background: #333; color: #fff";><i class="icon-white icon-remove-sign"></i>  Logout</a></li>
+                        <li><a href="<?php echo site_url('login/logout')?>" ;></i>  Logout</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+        <br>
+        <br>
         <br>
     <?php } else { ?>
 
@@ -70,7 +74,7 @@
                     <li class="<?php if(isset($active_dashboard)){echo $active_dashboard ;}?>">
                         <a href="<?php echo site_url('dashboard')?>"><i class="icon-home"></i> Dashboard</a>
                     </li>
-                    <li class="<?php if(isset($active_penjualan)){echo $active_penjualan ;}?>">
+                    <li class="<?php if(isset($active_b_keluar)){echo $active_b_keluar ;}?>">
                         <a href="<?php echo site_url('penjualan')?>"><i class="icon-barcode"></i> Penjualan</a>
                     </li>
                     <li class="<?php if(isset($active_laporan)){echo $active_laporan ;}?>">

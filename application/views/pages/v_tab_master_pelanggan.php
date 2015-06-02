@@ -1,9 +1,9 @@
-<table class="table table-bordered table-striped">
+<table class="table table-striped">
     <thead>
     <tr>
         <th>No</th>
-        <th>Kode Pelanggan</th>
-        <th>Nama Pelanggan</th>
+        <th>Kode Client</th>
+        <th>Nama Client</th>
         <th>Alamat</th>
         <th>Email</th>
         <th class="span2">

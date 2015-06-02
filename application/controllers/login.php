@@ -7,7 +7,7 @@ class Login extends CI_Controller{
 
     function index(){
         $data=array(
-            'title'=>'Login Page'
+            'title'=>'Login Sistem Informasi Logistik'
         );
         $this->load->view('pages/v_login',$data);
     }

@@ -17,7 +17,7 @@
             <tr class="gradeX">
                 <td><?php echo $no++; ?></td>
                 <td><?php echo date("d M Y",strtotime($row->tanggal_penjualan)); ?></td>
-                <td><?php echo $row->kd_penjualan; ?></td>
+                <td><?php echo $row->kd_barang_keluar; ?></td>
                 <td><?php echo $row->nm_pelanggan; ?></td>
                 <td><?php echo currency_format($row->total_harga); ?></td>
             </tr>

@@ -10,7 +10,7 @@
                     <div class="span6">
                         <dl class="dl-horizontal">
                             <dt>Kode Penjualan :</dt>
-                            <dd><?php echo $row->kd_penjualan?></dd>
+                            <dd><?php echo $row->kd_barang_keluar?></dd>
                             <br/>
                             <dt>Tanggal Penjualan :</dt>
                             <dd><?php echo date("d M Y",strtotime($row->tanggal_penjualan));?></dd>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="span6">
                         <dl class="dl-horizontal">
-                            <dt>Pelanggan :</dt>
+                            <dt>Client:</dt>
                             <dd><?php echo $row->nm_pelanggan?></dd>
                             <br/>
                             <dt>Alamat :</dt>
