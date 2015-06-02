@@ -56,7 +56,7 @@
     </form>
       <div class="container">
     <div class="footer">
-        <p>&copy; 2015: <a href="http://bogor.net.id" target="_blank"><strong>PT. Bonet Utama - Dev by RYD Corp</strong></a></p>
+        <p>&copy; 2015: <a href="http://bogor.net.id" target="_blank"><strong>PT. Bonet Utama - Dev by RYD Corporation</strong></a></p>
     </div>
     </div>
 </div>
