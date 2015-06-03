@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller{
         $data=array(
             'title'=>'Dashboard',
             'active_dashboard'=>'active',
-            'dt_contact'=>$this->model_app->getAllData('tbl_contact'),
+            'dt_contact'=>$this->model_app->getAllData('tabel_kontak'),
         );
         $this->load->view('element/v_header',$data);
         $this->load->view('pages/v_dashboard');

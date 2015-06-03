@@ -15,8 +15,5 @@
   "text-indent": false,
   "unique-headings": false,
   "universal-selector": false,
-  "unqualified-attributes": false,
-
-  "fallback-colors": false,
-  "font-faces": false
+  "unqualified-attributes": false
 }

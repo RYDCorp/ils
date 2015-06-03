@@ -1,36 +1,39 @@
 {
-  "name": "flat-ui",
-  "version": "2.2.2",
+  "name": "bootstrap",
+  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+  "version": "3.3.4",
+  "keywords": [
+    "css",
+    "js",
+    "less",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "http://getbootstrap.com",
   "main": [
-    "less/flat-ui.less",
-    "dist/css/flat-ui.css",
-    "dist/js/flat-ui.js",
-    "dist/fonts/glyphicons/flat-ui-icons-regular.eot",
-    "dist/fonts/glyphicons/flat-ui-icons-regular.svg",
-    "dist/fonts/glyphicons/flat-ui-icons-regular.ttf",
-    "dist/fonts/glyphicons/flat-ui-icons-regular.woff"
+    "less/bootstrap.less",
+    "dist/css/bootstrap.css",
+    "dist/js/bootstrap.js",
+    "dist/fonts/glyphicons-halflings-regular.eot",
+    "dist/fonts/glyphicons-halflings-regular.svg",
+    "dist/fonts/glyphicons-halflings-regular.ttf",
+    "dist/fonts/glyphicons-halflings-regular.woff",
+    "dist/fonts/glyphicons-halflings-regular.woff2"
   ],
   "ignore": [
-    ".*"
+    "/.*",
+    "_config.yml",
+    "CNAME",
+    "composer.json",
+    "CONTRIBUTING.md",
+    "docs",
+    "js/tests",
+    "test-infra"
   ],
-  "devDependencies": {
-    "jquery": "~1.11.1",
-    "jquery-ui": "~1.10.4",
-    "bootstrap": "~3.2.0",
-    "bootstrap-switch": "~3.0.2",
-    "holderjs": "~2.4.0",
-    "html5shiv": "~3.7.2",
-    "jquery-ui-touch-punch": "*",
-    "respond": "~1.4.2",
-    "typeahead.js": "~0.10.5",
-    "google-code-prettify": "~1.0.3",
-    "bootstrap-tagsinput": "~0.4.2",
-    "select2": "~3.5.1"
-  },
   "dependencies": {
-    "videojs": "~4.7.2"
-  },
-  "resolutions": {
-    "jquery": "~1.11.1"
+    "jquery": ">= 1.9.1"
   }
 }

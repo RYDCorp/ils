@@ -467,16 +467,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="187" column="16" selection-start="5592" selection-end="5592" vertical-scroll-proportion="1.7765089" vertical-offset="1988" max-vertical-offset="3264">
           <folding>
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select MAX(R..tbl_penjualan_header..." />
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select MAX(R..tbl_barang..." />
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select MAX(R..tbl_pelanggan..." />
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select MAX(R..tbl_pegawai..." />
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="SELECT * fro..tbl_barang..." />
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="SELECT a.kd_..tbl_penjualan_header..." />
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select count..tbl_penjualan_detail..." />
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="SELECT * fro..tbl_penjualan_header..." />
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select a.kd_..tbl_penjualan_detail..." />
-            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="SELECT *,sum..tbl_penjualan_header..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select MAX(R..tabel_bk_header..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select MAX(R..tabel_barang..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select MAX(R..tabel_client..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select MAX(R..tabel_pegawai..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="SELECT * fro..tabel_barang..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="SELECT a.kd_..tabel_bk_header..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select count..tabel_bk_detail..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="SELECT * fro..tabel_bk_header..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="select a.kd_..tabel_bk_detail..." />
+            <marker date="1403675783634" expanded="true" signature="-1:-1" placeholder="SELECT *,sum..tabel_bk_header..." />
           </folding>
         </state>
       </provider>

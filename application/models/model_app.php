@@ -9,7 +9,7 @@ class Model_app extends CI_Model{
     //    KODE PENJUALAN
     public function getKodePenjualan()
     {
-        $q = $this->db->query("select MAX(RIGHT(kd_barang_keluar,3)) as kd_max from tbl_penjualan_header");
+        $q = $this->db->query("select MAX(RIGHT(kd_barang_keluar,3)) as kd_max from tabel_bk_header");
         $kd = "";
         if($q->num_rows()>0)
         {
@@ -28,7 +28,7 @@ class Model_app extends CI_Model{
 
     //    KODE BARANG
     function getKodeBarang(){
-        $q = $this->db->query("select MAX(RIGHT(kd_barang,3)) as kd_max from tbl_barang");
+        $q = $this->db->query("select MAX(RIGHT(kd_barang,3)) as kd_max from tabel_barang");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
@@ -43,7 +43,7 @@ class Model_app extends CI_Model{
 
     //    KODE PELANGGAN
     public function getKodePelanggan(){
-        $q = $this->db->query("select MAX(RIGHT(kd_pelanggan,3)) as kd_max from tbl_pelanggan");
+        $q = $this->db->query("select MAX(RIGHT(kd_pelanggan,3)) as kd_max from tabel_client");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
@@ -58,7 +58,7 @@ class Model_app extends CI_Model{
 
     //    KODE PEGAWAI
     public function getKodePegawai(){
-        $q = $this->db->query("select MAX(RIGHT(kd_pegawai,3)) as kd_max from tbl_pegawai");
+        $q = $this->db->query("select MAX(RIGHT(kd_pegawai,3)) as kd_max from tabel_pegawai");
         $kd = "";
         if($q->num_rows()>0){
             foreach($q->result() as $k){
@@ -73,7 +73,7 @@ class Model_app extends CI_Model{
 
     public function getTambahStok($kd_barang,$tambah)
     {
-        $q = $this->db->query("select stok from tbl_barang where kd_barang='".$kd_barang."'");
+        $q = $this->db->query("select stok from tabel_barang where kd_barang='".$kd_barang."'");
         $stok = "";
         foreach($q->result() as $d)
         {
@@ -83,7 +83,7 @@ class Model_app extends CI_Model{
     }
     public function getKurangStok($kd_barang,$kurangi)
     {
-        $q = $this->db->query("select stok from tbl_barang where kd_barang='".$kd_barang."'");
+        $q = $this->db->query("select stok from tabel_barang where kd_barang='".$kd_barang."'");
         $stok = "";
         foreach($q->result() as $d)
         {
@@ -93,7 +93,7 @@ class Model_app extends CI_Model{
     }
     public function getKembalikanStok($kd_barang)
     {
-        $q = $this->db->query("select stok from tbl_barang where kd_barang='".$kd_barang."'");
+        $q = $this->db->query("select stok from tabel_barang where kd_barang='".$kd_barang."'");
         $stok = "";
         foreach($q->result() as $d)
         {
@@ -128,7 +128,7 @@ class Model_app extends CI_Model{
     }
 
     function getBarangJual(){
-        return $this->db->query ("SELECT * from tbl_barang where stok > 0")->result();
+        return $this->db->query ("SELECT * from tabel_barang where stok > 0")->result();
     }
 
     function getAllDataPenjualan(){
@@ -136,31 +136,31 @@ class Model_app extends CI_Model{
                 a.kd_barang_keluar,
                 a.tanggal_penjualan,
                 a.total_harga,
-			    (select count(kd_barang_keluar) as jum from tbl_penjualan_detail where kd_barang_keluar=a.kd_barang_keluar) as jumlah
-			    from tbl_penjualan_header a
+			    (select count(kd_barang_keluar) as jum from tabel_bk_detail where kd_barang_keluar=a.kd_barang_keluar) as jumlah
+			    from tabel_bk_header a
 			    ORDER BY a.kd_barang_keluar DESC
 		")->result();
     }
 
     function getDataPenjualan($id){
-        return $this->db->query("SELECT * from tbl_penjualan_header a
-                left join tbl_pelanggan b on a.kd_pelanggan=b.kd_pelanggan
-                left join tbl_pegawai c on a.kd_pegawai=c.kd_pegawai
+        return $this->db->query("SELECT * from tabel_bk_header a
+                left join tabel_client b on a.kd_pelanggan=b.kd_pelanggan
+                left join tabel_pegawai c on a.kd_pegawai=c.kd_pegawai
                 where a.kd_barang_keluar = '$id'")->result();
     }
 
     function getBarangPenjualan($id){
         return $this->db->query("
                 select a.kd_barang,a.qty,b.nm_barang,b.harga
-                from tbl_penjualan_detail a
-                left join tbl_barang b on a.kd_barang=b.kd_barang
+                from tabel_bk_detail a
+                left join tabel_barang b on a.kd_barang=b.kd_barang
                 where a.kd_barang_keluar = '$id'")->result();
     }
 
     function getLapPenjualan($tgl_awal,$tgl_akhir){
-        return $this->db->query("SELECT *,sum(a.total_harga) as total_all from tbl_penjualan_header a
-                left join tbl_pelanggan b on a.kd_pelanggan=b.kd_pelanggan
-                left join tbl_pegawai c on a.kd_pegawai=c.kd_pegawai
+        return $this->db->query("SELECT *,sum(a.total_harga) as total_all from tabel_bk_header a
+                left join tabel_client b on a.kd_pelanggan=b.kd_pelanggan
+                left join tabel_pegawai c on a.kd_pegawai=c.kd_pegawai
                 where a.tanggal_penjualan between '$tgl_awal' and '$tgl_akhir'
                 ")->result();
     }
@@ -168,7 +168,7 @@ class Model_app extends CI_Model{
     function login($username, $password) {
         //create query to connect user login database
         $this->db->select('*');
-        $this->db->from('tbl_pegawai');
+        $this->db->from('tabel_pegawai');
         $this->db->where('username', $username);
         $this->db->where('password', MD5($password));
         $this->db->limit(1);

@@ -1,11 +1,14 @@
 <!--================ Content Wrapper===========================================-->
-<div class="well">
+ <div class="container">
+           <div class="page-header">
+              <h3 class='box-title'><i class="fa fa-tag"></i> <?php echo $title?></h3>
+            </div>
     <form>
         <label class="control-label">Kode Barang Keluar</label>
         <div class="controls">
-            <input type="text" class="input-xlarge" value="<?php echo $kd_barang_keluar; ?>" readonly>
+            <input class="form-control" type="text" class="input-xlarge" value="<?php echo $kd_barang_keluar; ?>" readonly>
         </div>
-        <table class="table table-bordered table-striped">
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>No</th>
@@ -34,7 +37,7 @@
                     <td>Rp. <?php echo $this->cart->format_number($items['price']); ?></td>
                     <td>Rp. <?php echo $this->cart->format_number($items['subtotal']); ?></td>
                     <td>
-                        <a class="btn btn-mini btn-danger btn-block delbutton" href="#" class="delbutton"
+                        <a class="btn btn-danger btn-block delbutton" href="#" class="delbutton"
                            id="<?php echo 'tambah/'.$items['rowid'].'/'.$kd_barang_keluar.'/'.$items['id'].'/'.$items['qty']; ?>">
                             <i class="icon-trash icon-white"></i> Hapus Barang</a>
                     </td>
@@ -53,7 +56,7 @@
                 <div class="control-group">
                     <label class="control-label"> <strong>Daftar Pelanggan</strong></label>
                     <div class="controls">
-                        <select id="kd_pelanggan" tabindex="5" class="chzn-select" name="kd_pelanggan" data-placeholder="Pilih Pelanggan">
+                        <select id="kd_pelanggan" tabindex="5" class="form-control select select-primary select-block mbl" name="kd_pelanggan" data-placeholder="Pilih Pelanggan">
                             <option value=""></option>
                             <?php
                             if(isset($data_pelanggan)){
@@ -71,11 +74,11 @@
                 <div id="detail_pelanggan"></div>
             </div>
             <div class="span4 badge pull-right">
-                <div class="control-group">
+                <div class="form-group">
                     <label class="control-label" style="text-align: center"><h4>Total Harga</h4></label>
-                    <div class="controls">
-                        <input type="text" class="uneditable-input input-block-level"
-                               value="Rp. <?php echo $this->cart->format_number($this->cart->total()); ?>">
+                    <div class="form-control">
+                        <input type="text" class="uneditable-input form-group"
+                               value="Rp. <?php echo $this->cart->format_number($this->cart->total()); ?>" readonly>
                     </div>
                 </div>
 
@@ -85,15 +88,18 @@
 
             </div>
         </div>
+        <br>
         <div class="form-actions">
-            <button type="submit" class="btn btn-primary"><i class="icon-ok-sign icon-white"></i> Save</button>
-            <a href="<?php echo site_url('b_keluar')?>" class="btn"><i class="icon-remove-sign"></i> Cancel</a>
+            <button type="submit" class="btn btn-primary"><i class="icon-ok-sign icon-white"></i> Simpan</button>
+            <a href="<?php echo site_url('b_keluar')?>" class="btn btn-danger"><i class="icon-remove-sign"></i> Cancel</a>
         </div>
     </form>
 </div>
 
 <!-- ============ MODAL ADD PENJUALAN BARANG =============== -->
-<div id="modalAddPenjualanBarang" class="modal hide fade">
+<div id="modalAddPenjualanBarang" class="modal">
+    <div class="modal-dialog">
+    <div class="modal-content">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Tambah Barang</h3>
@@ -102,7 +108,6 @@
         <div class="modal-body" style="min-height: 200px">
             <div class="control-group">
                 <label class="control-label">Daftar Barang</label>
-                <div class="controls">
                     <select id="kd_barang" class="chzn-select" name="kd_barang" data-placeholder="Pilih Barang">
                         <option value=""></option>
                         <?php
@@ -115,16 +120,20 @@
                         }
                         ?>
                     </select>
-                </div>
+                
             </div>
             <div id="detail_barang"></div>
         </div>
 
+
         <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
             <button type="submit" class="btn btn-primary" disabled="disabled" id="add" name="add">Simpan</button>
         </div>
     </form>
+    </div>
+    </div>
+
 </div>
 
 <script type="text/javascript">

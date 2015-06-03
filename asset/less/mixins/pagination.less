@@ -1,29 +1,22 @@
-// Pagination variants
+// Pagination
 
-.pagination-variant(@color, @hover, @active) {
-  ul {
-    background-color: @color;
-
-    li {
-      &.previous {
-        > a {
-          border-right-color: mix(@color, white, 66%);
-        }
+.pagination-size(@padding-vertical; @padding-horizontal; @font-size; @border-radius) {
+  > li {
+    > a,
+    > span {
+      padding: @padding-vertical @padding-horizontal;
+      font-size: @font-size;
+    }
+    &:first-child {
+      > a,
+      > span {
+        .border-left-radius(@border-radius);
       }
-      > a, > span {
-        border-left-color: mix(@color, white, 66%);
-
-        &:hover, &:focus {
-          background-color: @hover;
-        }
-        &:active {
-          background-color: @active;
-        }
-      }
-      &.active {
-        > a, > span {
-          background-color: @active;
-        }
+    }
+    &:last-child {
+      > a,
+      > span {
+        .border-right-radius(@border-radius);
       }
     }
   }

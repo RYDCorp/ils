@@ -31,14 +31,14 @@ class B_keluar extends CI_Controller{
             'active_b_keluar'=>'active',
             'kd_barang_keluar'=>$this->model_app->getKodePenjualan(),
             'data_barang'=>$this->model_app->getBarangJual(),
-            'data_pelanggan'=>$this->model_app->getAllData('tbl_pelanggan'),
+            'data_pelanggan'=>$this->model_app->getAllData('tabel_client'),
         );
         $this->load->view('element/v_header',$data);
         $this->load->view('pages/v_tambah_barang_keluar');
         $this->load->view('element/v_footer');
     }
 
-    function detail_penjualan(){
+    function detail_barang_keluar(){
         $id= $this->uri->segment(3);
         $data=array(
             'title'=>'Detail Barang Keluar',
@@ -54,7 +54,7 @@ class B_keluar extends CI_Controller{
     function get_detail_barang(){
         $id['kd_barang']=$this->input->post('kd_barang');
         $data=array(
-            'detail_barang'=>$this->model_app->getSelectedData('tbl_barang',$id)->result(),
+            'detail_barang'=>$this->model_app->getSelectedData('tabel_barang',$id)->result(),
         );
         $this->load->view('pages/ajax_detail_barang',$data);
     }
@@ -62,7 +62,7 @@ class B_keluar extends CI_Controller{
     function get_detail_pelanggan(){
         $id['kd_pelanggan']=$this->input->post('kd_pelanggan');
         $data=array(
-            'detail_pelanggan'=>$this->model_app->getSelectedData('tbl_pelanggan',$id)->result(),
+            'detail_pelanggan'=>$this->model_app->getSelectedData('tabel_client',$id)->result(),
         );
         $this->load->view('pages/ajax_detail_pelanggan',$data);
     }
@@ -87,7 +87,7 @@ class B_keluar extends CI_Controller{
             'tanggal_penjualan'=>date("Y-m-d",strtotime($this->input->post('tanggal_penjualan'))),
             'kd_pegawai'=>$this->session->userdata('ID'),
         );
-        $this->model_app->insertData("tbl_penjualan_header",$data);
+        $this->model_app->insertData("tabel_bk_header",$data);
 
         foreach($this->cart->contents() as $items){
             $kd_barang = $items['id'];
@@ -97,11 +97,11 @@ class B_keluar extends CI_Controller{
                 'kd_barang'=> $kd_barang,
                 'qty'=>$qty,
             );
-            $this->model_app->insertData("tbl_penjualan_detail",$data_detail);
+            $this->model_app->insertData("tabel_bk_detail",$data_detail);
 
             $update['stok'] = $this->model_app->getKurangStok($kd_barang,$qty);
             $key['kd_barang'] = $kd_barang;
-            $this->model_app->updateData("tbl_barang",$update,$key);
+            $this->model_app->updateData("tabel_barang",$update,$key);
         }
         $this->session->unset_userdata('limit_add_cart');
         $this->cart->destroy();
@@ -112,7 +112,7 @@ class B_keluar extends CI_Controller{
 //    DELETE
     function hapus_barang(){
         $id= $this->uri->segment(3);
-        $bc=$this->model_app->getSelectedData("tbl_penjualan_header",$id);
+        $bc=$this->model_app->getSelectedData("tabel_bk_header",$id);
         foreach($bc->result() as $dph){
             $sess_data['kd_barang_keluar'] = $dph->kd_barang_keluar;
             $this->session->set_userdata($sess_data);
@@ -136,25 +136,25 @@ class B_keluar extends CI_Controller{
             $this->cart->update($data);
             $hps['kd_barang_keluar'] = $kode[2];
             $hps['kd_barang'] = $kode[3];
-            $this->model_app->deleteData("tbl_penjualan_detail",$hps);
+            $this->model_app->deleteData("tabel_bk_detail",$hps);
 
             $key_barang['kd_barang'] = $hps['kd_barang'];
             $d_u['stok'] = $kode[4]+$kode[5];
-            $this->model_app->updateData("tbl_barang",$d_u,$key_barang);
+            $this->model_app->updateData("tabel_barang",$d_u,$key_barang);
         }
         redirect('b_keluar/pages_edit/'.$this->session->userdata('kd_barang_keluar'));
     }
 
     function hapus(){
         $hapus['kd_barang_keluar'] = $this->uri->segment(3);
-        $q = $this->model_app->getSelectedData("tbl_penjualan_detail",$hapus);
+        $q = $this->model_app->getSelectedData("tabel_bk_detail",$hapus);
         foreach($q->result() as $d){
             $d_u['stok'] = $this->model_app->getTambahStok($d->kd_barang,$d->qty);
             $key['kd_barang'] = $d->kd_barang;
-            $this->model_app->updateData("tbl_barang",$d_u,$key);
+            $this->model_app->updateData("tabel_barang",$d_u,$key);
         }
-        $this->model_app->deleteData("tbl_penjualan_header",$hapus);
-        $this->model_app->deleteData("tbl_penjualan_detail",$hapus);
+        $this->model_app->deleteData("tabel_bk_header",$hapus);
+        $this->model_app->deleteData("tabel_bk_detail",$hapus);
         redirect('b_keluar');
     }
 }

@@ -23,7 +23,7 @@
 </script>
 
 <h3 style="text-align: center">
-    Lihat Laporan Penjualan Berdasarkan Tanggal Yang DiPilih
+    Lihat Laporan Pengeluaran Barang Berdasarkan Tanggal Yang Di Pilih
 </h3>
 <div class="container-fluid">
     <div class="row-fluid">
@@ -44,18 +44,19 @@
                 <div class="control-group">
                     <label class="control-label" for="start_date">Tanggal Awal</label>
                     <div class="controls">
-                        <input type="date" id="tgl_awal" name="start_date">
+                        <input type="date" id="tgl_awal" class="form-control" name="start_date">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="end_date">Tanggal Akhir</label>
                     <div class="controls">
-                        <input type="date" id="tgl_akhir" name="end_date">
+                        <input type="date" id="tgl_akhir" class="form-control" name="end_date">
                     </div>
                 </div>
+                <br>
                 <div class="control-group">
                     <div class="controls">
-                        <button id="btnCari" type="submit" class="btn btn-info"><i class="icon icon-white icon-search"></i> Search...</button>
+                        <button id="btnCari" type="submit" class="btn btn-info"><i class="icon icon-white icon-search"></i> Cari</button>
                     </div>
                 </div>
             </form>

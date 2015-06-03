@@ -7,7 +7,7 @@
         <th>Nama Pegawai</th>
         <th>Level</th>
         <th class="span2">
-            <a href="#modalAddPegawai" class="btn btn-mini btn-block btn-inverse" data-toggle="modal">
+            <a href="#modalAddPegawai" class="btn btn-primary" data-toggle="modal">
                 <i class="icon-plus-sign icon-white"></i> Tambah Pegawai
             </a>
 
@@ -32,8 +32,8 @@
                 <td><?php echo $row->level; ?></td>
 
                 <td>
-                    <a class="btn btn-mini" href="#modalEditPegawai<?php echo $row->kd_pegawai?>" data-toggle="modal"><i class="icon-pencil"></i> Edit</a>
-                    <a class="btn btn-mini" href="<?php echo site_url('master/hapus_pegawai/'.$row->kd_pegawai);?>"
+                    <a class="btn btn-info" href="#modalEditPegawai<?php echo $row->kd_pegawai?>" data-toggle="modal"><i class="icon-pencil"></i> Edit</a>
+                    <a class="btn btn-danger" href="<?php echo site_url('master/hapus_pegawai/'.$row->kd_pegawai);?>"
                        onclick="return confirm('Anda yakin?')"> <i class="icon-remove"></i> Hapus</a>
 
 <!--                    <a class="btn btn-mini disabled" href="#" data-toggle="modal"><i class="icon-pencil"></i> Edit</a>-->
@@ -50,7 +50,9 @@
 </table>
 
 <!-- ============ MODAL ADD PEGAWAI =============== -->
-<div id="modalAddPegawai" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="modalAddPegawai" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+    <div class="modal-content">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Tambah Pegawai</h3>
@@ -60,7 +62,7 @@
             <div class="control-group">
                 <label class="control-label">Kode Pegawai</label>
                 <div class="controls">
-                    <input name="kd_pegawai" type="text" value="<?php echo $kd_pegawai; ?>" readonly>
+                    <input name="kd_pegawai" type="text" value="<?php echo $kd_pegawai; ?>" preadonly>
                 </div>
             </div>
 
@@ -105,6 +107,8 @@
         </div>
     </form>
 </div>
+</div>
+</div>
 
 
 <!-- ============ MODAL EDIT PEGAWAI =============== -->
@@ -112,8 +116,10 @@
 if (isset($data_pegawai)){
     foreach($data_pegawai as $row){
         ?>
-        <div id="modalEditPegawai<?php echo $row->kd_pegawai?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
+        <div id="modalEditPegawai<?php echo $row->kd_pegawai?>" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+             <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 id="myModalLabel">Edit Data Pegawai</h3>
             </div>
@@ -170,6 +176,9 @@ if (isset($data_pegawai)){
                 </div>
             </form>
         </div>
+        </div>
+        </div>
+
     <?php }
 }
 ?>

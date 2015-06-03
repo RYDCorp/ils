@@ -7,19 +7,19 @@
             <?php if(isset($dt_penjualan)){
                 foreach($dt_penjualan as $row){
                     ?>
-                    <div class="span6">
+                    <div class="row">
                         <dl class="dl-horizontal">
-                            <dt>Kode Penjualan :</dt>
+                            <dt>Kode Barang Keluar :</dt>
                             <dd><?php echo $row->kd_barang_keluar?></dd>
                             <br/>
-                            <dt>Tanggal Penjualan :</dt>
+                            <dt>Tgl Barang Keluar :</dt>
                             <dd><?php echo date("d M Y",strtotime($row->tanggal_penjualan));?></dd>
                             <br/>
                             <dt>Total Harga :</dt>
                             <dd><strong><u><?= currency_format($row->total_harga); ?></u></strong></dd>
                         </dl>
                     </div>
-                    <div class="span6">
+                    <div class="row">
                         <dl class="dl-horizontal">
                             <dt>Client:</dt>
                             <dd><?php echo $row->nm_pelanggan?></dd>

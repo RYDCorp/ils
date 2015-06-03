@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: GilangSonar
- * Date: 12/19/13
- * Time: 5:36 AM
- */
+
 
 class Cetak extends CI_Controller{
     function __construct(){
@@ -17,11 +12,11 @@ class Cetak extends CI_Controller{
         $this->load->helper('currency_format_helper');
     }
 
-    function print_penjualan(){
+    function cetak_faktur_barang_keluar(){
         $id=$this->uri->segment(3);
         $data=array(
             'title'=>'Penjualan',
-            'dt_contact'=>$this->model_app->getAllData('tbl_contact'),
+            'dt_contact'=>$this->model_app->getAllData('tabel_kontak'),
             'dt_penjualan'=>$this->model_app->getDataPenjualan($id),
             'barang_jual'=>$this->model_app->getBarangPenjualan($id),
         );

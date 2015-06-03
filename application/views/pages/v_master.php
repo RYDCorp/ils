@@ -1,9 +1,7 @@
 
     <!--========================= Content Wrapper ==============================-->
-<section class="content">
-          <!-- COLOR PALETTE -->
-          <div class='box box-default color-palette-box'>
-            <div class='box-header with-border'>
+<div class="container">
+           <div class="page-header">
               <h3 class='box-title'><i class="fa fa-tag"></i> Master Data</h3>
             </div>
 

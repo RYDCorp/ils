@@ -17,10 +17,10 @@ class Master extends CI_Controller{
             'kd_barang'=>$this->model_app->getKodeBarang(),
             'kd_pelanggan'=>$this->model_app->getKodePelanggan(),
             'kd_pegawai'=>$this->model_app->getKodePegawai(),
-            'data_barang'=>$this->model_app->getAllData('tbl_barang'),
-            'data_pelanggan'=>$this->model_app->getAllData('tbl_pelanggan'),
-            'data_contact'=>$this->model_app->getAllData('tbl_contact'),
-            'data_pegawai'=>$this->model_app->getAllData('tbl_pegawai'),
+            'data_barang'=>$this->model_app->getAllData('tabel_barang'),
+            'data_pelanggan'=>$this->model_app->getAllData('tabel_client'),
+            'data_contact'=>$this->model_app->getAllData('tabel_kontak'),
+            'data_pegawai'=>$this->model_app->getAllData('tabel_pegawai'),
         );
         $this->load->view('element/v_header',$data);
         $this->load->view('pages/v_master');
@@ -36,7 +36,7 @@ class Master extends CI_Controller{
             'stok'=>$this->input->post('stok'),
             'harga'=>$this->input->post('harga'),
         );
-        $this->model_app->insertData('tbl_barang',$data);
+        $this->model_app->insertData('tabel_barang',$data);
         redirect("master");
     }
     function tambah_pelanggan(){
@@ -46,7 +46,7 @@ class Master extends CI_Controller{
             'alamat'=>$this->input->post('alamat'),
             'email'=>$this->input->post('email'),
         );
-        $this->model_app->insertData('tbl_pelanggan',$data);
+        $this->model_app->insertData('tabel_client',$data);
         redirect("master");
     }
     function tambah_pegawai(){
@@ -57,7 +57,7 @@ class Master extends CI_Controller{
             'nama'=> $this->input->post('nama'),
             'level'=>$this->input->post('level'),
         );
-        $this->model_app->insertData('tbl_pegawai',$data);
+        $this->model_app->insertData('tabel_pegawai',$data);
         redirect("master");
     }
 
@@ -70,7 +70,7 @@ class Master extends CI_Controller{
             'stok'=>$this->input->post('stok'),
             'harga'=>$this->input->post('harga'),
         );
-        $this->model_app->updateData('tbl_barang',$data,$id);
+        $this->model_app->updateData('tabel_barang',$data,$id);
         redirect("master");
     }
     function edit_pelanggan(){
@@ -80,7 +80,7 @@ class Master extends CI_Controller{
             'alamat'=>$this->input->post('alamat'),
             'email'=>$this->input->post('email'),
         );
-        $this->model_app->updateData('tbl_pelanggan',$data,$id);
+        $this->model_app->updateData('tabel_client',$data,$id);
         redirect("master");
     }
     function edit_contact(){
@@ -94,7 +94,7 @@ class Master extends CI_Controller{
             'website'=>$this->input->post('website'),
             'desc'=>$this->input->post('desc'),
         );
-        $this->model_app->updateData('tbl_contact',$data,$id);
+        $this->model_app->updateData('tabel_kontak',$data,$id);
         redirect("master");
     }
     function edit_pegawai(){
@@ -105,24 +105,24 @@ class Master extends CI_Controller{
             'nama'=> $this->input->post('nama'),
             'level'=>$this->input->post('level'),
         );
-        $this->model_app->updateData('tbl_pegawai',$data,$id);
+        $this->model_app->updateData('tabel_pegawai',$data,$id);
         redirect("master");
     }
 
 //    ========================== DELETE =======================
     function hapus_barang(){
         $id['kd_barang'] = $this->uri->segment(3);
-        $this->model_app->deleteData('tbl_barang',$id);
+        $this->model_app->deleteData('tabel_barang',$id);
         redirect("master");
     }
     function hapus_pelanggan(){
         $id['kd_pelanggan'] = $this->uri->segment(3);
-        $this->model_app->deleteData('tbl_pelanggan',$id);
+        $this->model_app->deleteData('tabel_client',$id);
         redirect("master");
     }
     function hapus_pegawai(){
         $id['kd_pegawai'] = $this->uri->segment(3);
-        $this->model_app->deleteData('tbl_pegawai',$id);
+        $this->model_app->deleteData('tabel_pegawai',$id);
         redirect("master");
     }
 }

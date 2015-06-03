@@ -1,42 +1,45 @@
 // Button variants
 //
-.button-variant(@color; @background; @hover-background; @active-background; @disabled-background: @gray-light) {
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+.button-variant(@color; @background; @border) {
   color: @color;
   background-color: @background;
+  border-color: @border;
 
   &:hover,
-  &.hover,
   &:focus,
+  &.focus,
   &:active,
   &.active,
   .open > .dropdown-toggle& {
     color: @color;
-    background-color: @hover-background;
-    border-color: @hover-background;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 12%);
   }
   &:active,
   &.active,
   .open > .dropdown-toggle& {
-    background: @active-background;
-    border-color: @active-background;
+    background-image: none;
   }
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
     &,
     &:hover,
-    &.hover,
     &:focus,
+    &.focus,
     &:active,
     &.active {
-      background-color: @disabled-background;
-      border-color: @background;
+      background-color: @background;
+          border-color: @border;
     }
   }
 
   .badge {
     color: @background;
-    background-color: @inverse;
+    background-color: @color;
   }
 }
 
@@ -46,19 +49,4 @@
   font-size: @font-size;
   line-height: @line-height;
   border-radius: @border-radius;
-}
-
-// Social button variants
-.social-button-variant(@color; @background) {
-  color: @color;
-  background-color: @background;
-
-  &:hover,
-  &:focus {
-    background-color: mix(@background, white, 80%);
-  }
-  &:active,
-  &.active {
-    background-color: mix(@background, black, 85%);
-  }
 }
